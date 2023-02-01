@@ -116,6 +116,9 @@ impl Paths {
     pub fn print(mut self) {
         self.indentate_paths();
         for path in self.paths.into_iter() {
+            if !self.all && path.file_name.starts_with(".") {
+                continue;
+            }
             path.print();
         }
     }
